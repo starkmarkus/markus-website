@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Markus Stark – Project portfolio. Projects, research and ideas in energy & sustainability and applied AI."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Markus Stark",
+        "url": "https://markusstark.com",
+        "sameAs": ["https://linkedin.com/in/mastark"]
+      }
+    </script>
+    <title>Markus Stark - Project Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/logos/desktop-mark.svg" />
+    <style>
+      #about-home-stage.is-intro-pending .about-home-heading,
+      #about-home-stage.is-intro-pending .about-home-subtext {
+        visibility: hidden;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="modulepreload" href="/src/main.js" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="desktop-shell">
+      <header class="menubar" aria-label="Main Menu">
+        <div class="menubar-group">
+          <button
+            class="menubar-item menubar-logo"
+            type="button"
+            data-easter-trigger="system"
+            aria-label="Show system status"
+          ></button>
+
+          <div class="menu-shell">
+            <button class="menubar-item menubar-button" type="button" data-menu-trigger="about-menu" aria-expanded="false">
+              About
+            </button>
+            <div class="menu-dropdown" data-menu="about-menu" role="menu" hidden>
+              <button class="menu-dropdown-item" type="button" data-open="about-window" role="menuitem">
+                About Markus
+              </button>
+              <button class="menu-dropdown-item" type="button" data-open="cv-window" role="menuitem">
+                View CV
+              </button>
+            </div>
+          </div>
+
+          <div class="menu-shell">
+            <button class="menubar-item menubar-button" type="button" data-menu-trigger="contact-menu" aria-expanded="false">
+              Contact
+            </button>
+            <div class="menu-dropdown menu-dropdown-right" data-menu="contact-menu" role="menu" hidden>
+              <button class="menu-dropdown-item" type="button" data-open="contact-window" role="menuitem">
+                Send a message
+              </button>
+              <button class="menu-dropdown-item" type="button" data-link="linkedin" role="menuitem">
+                LinkedIn
+              </button>
+              <button class="menu-dropdown-item" type="button" data-link="github" role="menuitem">
+                GitHub
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menubar-group menubar-group-right">
+          <button
+            class="menubar-item clock-shell clock-button"
+            type="button"
+            data-easter-trigger="time"
+            aria-label="Show current system time"
+          >
+            <span id="clock" class="menubar-text">11:11 AM</span>
+          </button>
+          <div class="menubar-item menubar-site">
+            <img src="/assets/logos/window-badge.svg" alt="" />
+            <span id="current-app-label" class="menubar-text">Desktop</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="desktop-stage" aria-label="Desktop">
+        <div class="desktop-icons" aria-label="Desktop icons">
+          <button
+            class="desktop-icon"
+            type="button"
+            data-open="projects-window"
+            data-desktop-item-id="desktop-projects-root"
+            data-desktop-base-id="projects-root"
+            data-desktop-instance-role="original"
+            data-desktop-kind="folder"
+            data-desktop-label="Projects"
+            data-stage-default-icon="/assets/icns/portfolio-folder.svg"
+            data-stage-open-icon="/assets/icns/portfolio-folder-open.svg"
+            style="left: 18px; top: 28px;"
+          >
+            <img src="/assets/icns/portfolio-folder.svg" alt="" class="icon" fetchpriority="high" />
+            <span data-rename-label>Projects</span>
+          </button>
+          <button id="desktop-trash" class="desktop-trash" type="button" aria-label="Bin" style="right: 18px; bottom: 18px;">
+            <span class="desktop-trash-art" aria-hidden="true">
+              <img src="/assets/icns/trash-bin.svg" alt="" class="desktop-trash-icon" />
+              <span class="desktop-trash-pop"></span>
+            </span>
+            <span class="desktop-trash-label" data-rename-label>Bin</span>
+          </button>
+        </div>
+
+        <section
+          class="window"
+          data-window="projects-window"
+          data-app-label="Projects"
+          aria-labelledby="projects-title"
+          data-min-width="720"
+          data-min-height="500"
+          style="left: 188px; top: 84px; width: min(700px, calc(100vw - 240px)); height: min(600px, calc(100vh - 170px));"
+          hidden
+        >
+          <header class="titlebar" data-drag-handle>
+            <div class="titlebar-controls">
+              <button class="titlebar-action titlebar-maximize" type="button" data-toggle-maximize aria-label="Expand window">
+                <span class="titlebar-action-box"></span>
+              </button>
+              <button class="titlebar-action titlebar-close" type="button" data-close aria-label="Close Projects window">
+                <span class="titlebar-action-line"></span>
+              </button>
+            </div>
+            <h2 id="projects-title" class="window-title">Projects</h2>
+            <span class="titlebar-balance" aria-hidden="true"></span>
+          </header>
+
+          <div class="window-body projects-window-body">
+            <div class="window-intro projects-intro">
+              <p class="eyebrow">Folder</p>
+            </div>
+
+            <div class="projects-browser">
+              <div class="projects-browser-toolbar">
+                <button id="projects-browser-back" class="button projects-browser-back" type="button" hidden>
+                  Back
+                </button>
+                <p id="projects-browser-path" class="projects-browser-path">Projects</p>
+              </div>
+              <div id="projects-browser-list" class="projects-browser-list" aria-live="polite"></div>
+            </div>
+          </div>
+          <button class="window-resizer" type="button" data-resize aria-label="Resize Projects window"></button>
+        </section>
+
+        <section
+          class="window project-detail-window"
+          data-window="project-detail-window"
+          data-project-detail-template="true"
+          data-app-label="Project"
+          data-prefer-top="72"
+          data-min-width="520"
+          data-min-height="460"
+          aria-labelledby="project-detail-window-title"
+          style="left: 248px; top: 86px; width: min(560px, calc(100vw - 220px)); height: min(620px, calc(100vh - 120px));"
+          hidden
+        >
+          <header class="titlebar" data-drag-handle>
+            <div class="titlebar-controls">
+              <button class="titlebar-action titlebar-maximize" type="button" data-toggle-maximize aria-label="Expand window">
+                <span class="titlebar-action-box"></span>
+              </button>
+              <button class="titlebar-action titlebar-close" type="button" data-close aria-label="Close Project window">
+                <span class="titlebar-action-line"></span>
+              </button>
+            </div>
+            <h2 id="project-detail-window-title" class="window-title" data-project-detail-ref="window-title">Project</h2>
+            <span class="titlebar-balance" aria-hidden="true"></span>
+          </header>
+
+          <div class="window-body project-detail-body">
+            <div class="stack stack-compact">
+              <img
+                id="project-detail-icon"
+                data-deferred-src="/assets/icns/project-sheet.svg"
+                alt=""
+                class="project-detail-icon"
+                data-project-detail-ref="icon"
+              />
+              <p id="project-detail-category" class="eyebrow" data-project-detail-ref="category">Applied AI</p>
+              <h3 id="project-detail-title" class="project-detail-title" data-project-detail-ref="title">Satellite data</h3>
+              <div id="project-detail-meta" class="project-detail-meta" aria-label="Project meta information">
+                <p class="project-detail-meta-row">
+                  <span class="project-detail-meta-label">Status:</span>
+                  <span id="project-detail-status" data-project-detail-ref="status">Completed</span>
+                </p>
+                <p class="project-detail-meta-row">
+                  <span class="project-detail-meta-label">Type:</span>
+                  <span id="project-detail-type" data-project-detail-ref="type">Bachelor thesis</span>
+                </p>
+                <p class="project-detail-meta-row">
+                  <span class="project-detail-meta-label">Duration:</span>
+                  <span id="project-detail-duration" data-project-detail-ref="duration">4 months</span>
+                </p>
+                <p id="project-detail-grade-row" class="project-detail-meta-row" data-project-detail-ref="grade-row" hidden>
+                  <span class="project-detail-meta-label">Grade:</span>
+                  <span id="project-detail-grade" data-project-detail-ref="grade">6.0 / 6.0 (best possible grade)</span>
+                </p>
+              </div>
+              <p id="project-detail-summary" class="project-detail-summary" data-project-detail-ref="summary"></p>
+              <div class="project-detail-actions">
+                <button id="project-detail-expand" class="button project-detail-expand" type="button" data-project-detail-ref="expand">
+                  Expand
+                </button>
+                <button id="project-detail-request" class="button project-detail-request" type="button" data-open="contact-window" data-project-detail-ref="request" hidden>
+                  Request details
+                </button>
+              </div>
+              <div id="project-detail-more" class="project-detail-more" data-project-detail-ref="more" hidden></div>
+              <div id="project-detail-secondary-actions" class="project-detail-secondary-actions" data-project-detail-ref="secondary-actions" hidden>
+                <button id="project-detail-github" class="button" type="button" data-project-detail-ref="github">
+                  View on GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+          <button class="window-resizer" type="button" data-resize aria-label="Resize Project window"></button>
+        </section>
+
+        <section
+          class="window"
+          data-window="about-window"
+          data-app-label="About"
+          data-disable-maximize="true"
+          data-disable-resize="true"
+          data-disable-custom-scrollbar="true"
+          data-min-width="760"
+          aria-labelledby="about-title"
+          style="left: 242px; top: 112px; width: min(920px, calc(100vw - 132px)); height: min(638px, calc(100vh - 154px));"
+          hidden
+        >
+          <header class="titlebar" data-drag-handle>
+            <div class="titlebar-controls titlebar-controls-single">
+              <button class="titlebar-action titlebar-close" type="button" data-close aria-label="Close About window">
+                <span class="titlebar-action-line"></span>
+              </button>
+            </div>
+            <h2 id="about-title" class="window-title">About Markus</h2>
+            <span class="titlebar-balance titlebar-balance-single" aria-hidden="true"></span>
+          </header>
+
+          <div class="window-body about-hero">
+            <div id="about-home-stage" class="about-home-stage is-intro-pending">
+              <div class="about-home-panel">
+                <div class="about-home-copy">
+                  <p id="about-home-heading" class="about-home-heading">
+                    Markus Stark is a student
+                    from Munich, working across
+                    strategy and applied AI.
+                  </p>
+                  <div id="about-home-subtext" class="about-home-subtext">
+                    <p
+                      id="about-home-focus-typing"
+                      class="about-home-subtext-line about-home-focus-typing"
+                      data-full-text="Focused on energy, sustainability, and data analytics."
+                    ></p>
+                    <p id="about-home-focus-line" class="about-home-subtext-line about-home-focus-line" hidden>
+                      <span class="about-focus-line-piece">
+                        Focused on
+                        <span id="about-word-energy" class="about-word about-word-energy">
+                          <span class="about-word-icon about-word-icon-battery" aria-hidden="true"></span>
+                          <span class="about-word-text">energy</span>
+                        </span>,
+                      </span>
+                      <span class="about-focus-line-piece">
+                        <span id="about-word-sustainability" class="about-word about-word-sustainability">
+                          <span class="about-word-icon about-word-icon-leaf" aria-hidden="true"></span>
+                          <span class="about-word-text">sustainability</span>
+                        </span>, and
+                      </span>
+                      <span class="about-focus-line-piece">
+                        <span id="about-word-data" class="about-word about-word-data">
+                          <span class="about-word-icon about-word-icon-data" aria-hidden="true"></span>
+                          <span class="about-word-text">data analytics</span>
+                        </span>.
+                      </span>
+                    </p>
+                    <p id="about-home-note" class="about-home-note">Selected work below.</p>
+                  </div>
+                </div>
+
+                <div id="about-home-rule" class="about-home-rule"></div>
+
+                <div id="about-home-actions" class="about-home-actions">
+                  <button class="button about-home-button" type="button" data-open="projects-window">
+                    Open projects
+                  </button>
+                  <button class="button about-home-button" type="button" data-open="contact-window">
+                    send a message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="window"
+          data-window="cv-window"
+          data-app-label="CV"
+          data-min-width="760"
+          data-min-height="460"
+          aria-labelledby="cv-title"
+          style="left: 240px; top: 88px; width: min(900px, calc(100vw - 220px)); height: min(620px, calc(100vh - 240px));"
+          hidden
+        >
+          <header class="titlebar" data-drag-handle>
+            <div class="titlebar-controls">
+              <button class="titlebar-action titlebar-maximize" type="button" data-toggle-maximize aria-label="Expand window">
+                <span class="titlebar-action-box"></span>
+              </button>
+              <button class="titlebar-action titlebar-close" type="button" data-close aria-label="Close CV window">
+                <span class="titlebar-action-line"></span>
+              </button>
+            </div>
+            <div class="window-title-shell">
+              <img data-deferred-src="/assets/icns/project-sheet.svg" alt="" class="window-title-icon" />
+              <h2 id="cv-title" class="window-title">CV</h2>
+            </div>
+            <span class="titlebar-balance" aria-hidden="true"></span>
+          </header>
+
+          <div class="window-body cv-window-body">
+            <article class="cv-document">
+              <header class="cv-document-header">
+                <h3 class="cv-document-title">Markus Stark's CV</h3>
+                <button id="cv-request-details" class="button cv-document-action" type="button">
+                  Request details
+                </button>
+              </header>
+
+              <section class="cv-section">
+                <h4 class="cv-section-title">Employment</h4>
+                <div class="cv-entry-list">
+                  <p class="cv-entry"><span class="cv-entry-year cv-entry-year-inline"><span class="cv-entry-year-line">From</span><span class="cv-entry-year-line">Oct 2026</span></span><span class="cv-entry-text">Associate at Boston Consulting Group (Munich)</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2026</span><span class="cv-entry-text">Founder Associate Program at FoodLabs</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2025</span><span class="cv-entry-text">Founder Associate Internship at Mycolever</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2024</span><span class="cv-entry-text">Strategy Consulting Internship at Boston Consulting Group</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2023</span><span class="cv-entry-text">Inhouse Consulting Internship at Deutsche Bank</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2022</span><span class="cv-entry-text">Business Development Internship at Check24</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2021</span><span class="cv-entry-text">Strategy Internship at Yoummday</span></p>
+                </div>
+              </section>
+
+              <section class="cv-section">
+                <h4 class="cv-section-title">Education</h4>
+                <div class="cv-entry-list">
+                  <p class="cv-entry"><span class="cv-entry-year"><span class="cv-entry-year-line">2024 –</span><span class="cv-entry-year-line">2026</span></span><span class="cv-entry-text">MSc Bioeconomy at Technical University Munich</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year"><span class="cv-entry-year-line">2021 –</span><span class="cv-entry-year-line">2024</span></span><span class="cv-entry-text">BA Business Administration at University of St. Gallen</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2021</span><span class="cv-entry-text">German High School Diploma (Abitur) at Lion-Feuchtwanger-Gymnasium</span></p>
+                </div>
+              </section>
+
+              <section class="cv-section">
+                <h4 class="cv-section-title">Extracurriculars</h4>
+                <div class="cv-entry-list">
+                  <p class="cv-entry"><span class="cv-entry-year"><span class="cv-entry-year-line">2021 –</span><span class="cv-entry-year-line">2024</span></span><span class="cv-entry-text">Member and Vice President at <a class="cv-inline-link" href="https://neonetwork.ch" target="_blank" rel="noreferrer">NEO Network</a></span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2022</span><span class="cv-entry-text">Voluntary Co-Author at Schweizer Monat</span></p>
+                </div>
+              </section>
+
+              <section class="cv-section">
+                <h4 class="cv-section-title">Scholarships</h4>
+                <div class="cv-entry-list">
+                  <p class="cv-entry"><span class="cv-entry-year">2025</span><span class="cv-entry-text">German National Scholarship</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2024</span><span class="cv-entry-text">University of St. Gallen Scholarship</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2023</span><span class="cv-entry-text">Swiss-European Mobility Scholarship</span></p>
+                  <p class="cv-entry"><span class="cv-entry-year">2021</span><span class="cv-entry-text">Max Weber Scholarship</span></p>
+                </div>
+              </section>
+
+              <section class="cv-section">
+                <h4 class="cv-section-title">Interests</h4>
+                <p class="cv-section-copy">Chess, calisthenics, mountaineering, climbing, AI projects</p>
+              </section>
+            </article>
+          </div>
+          <button class="window-resizer" type="button" data-resize aria-label="Resize CV window"></button>
+        </section>
+
+        <section
+          class="window"
+          data-window="contact-window"
+          data-app-label="Contact"
+          aria-labelledby="contact-title"
+          style="left: 240px; top: 92px; width: min(880px, calc(100vw - 160px)); height: min(760px, calc(100vh - 150px));"
+          hidden
+        >
+          <header class="titlebar" data-drag-handle>
+            <div class="titlebar-controls">
+              <button class="titlebar-action titlebar-maximize" type="button" data-toggle-maximize aria-label="Expand window">
+                <span class="titlebar-action-box"></span>
+              </button>
+              <button class="titlebar-action titlebar-close" type="button" data-close aria-label="Close Contact window">
+                <span class="titlebar-action-line"></span>
+              </button>
+            </div>
+            <h2 id="contact-title" class="window-title">Contact</h2>
+            <span class="titlebar-balance" aria-hidden="true"></span>
+          </header>
+
+          <div class="window-body contact-window-body">
+            <div class="contact-page">
+              <header class="contact-header">
+                <h3 class="contact-page-title">Send a message</h3>
+                <div class="contact-rule"></div>
+                <p class="contact-copy">
+                  Reach out through the form below or connect on
+                  <a
+                    id="contact-linkedin"
+                    class="contact-link"
+                    href="https://www.linkedin.com/in/mastark/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >LinkedIn</a>.
+                </p>
+              </header>
+
+              <form id="contact-form" class="contact-form">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your name" />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" placeholder="you@example.com" />
+                </label>
+                <div class="contact-honeypot" aria-hidden="true">
+                  <label>
+                    Company
+                    <input type="text" name="company" tabindex="-1" autocomplete="off" />
+                  </label>
+                </div>
+                <label>
+                  Message
+                  <textarea name="message" placeholder="What's on your mind?"></textarea>
+                </label>
+                <div class="form-actions">
+                  <button class="button" type="submit">Send Message</button>
+                </div>
+              </form>
+
+              <p id="contact-status" class="status-message" aria-live="polite" hidden></p>
+            </div>
+          </div>
+          <button class="window-resizer" type="button" data-resize aria-label="Resize Contact window"></button>
+        </section>
+      </section>
+
+      <aside id="easter-overlay" class="easter-overlay" aria-live="polite" hidden>
+        <header class="easter-overlay-titlebar">
+          <p id="easter-overlay-label" class="easter-overlay-label">System</p>
+        </header>
+        <div class="easter-overlay-body">
+          <p id="easter-overlay-message" class="easter-overlay-message">MarkOS active.
+
+Learning continuously.</p>
+        </div>
+      </aside>
+    </main>
+
+    <script>
+      const isLocalHostname =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "[::1]";
+
+      if (!isLocalHostname) {
+        window.va =
+          window.va ||
+          function () {
+            (window.vaq = window.vaq || []).push(arguments);
+          };
+
+        const analyticsScript = document.createElement("script");
+        analyticsScript.defer = true;
+        analyticsScript.src = "/_vercel/insights/script.js";
+        document.head.append(analyticsScript);
+
+        window.si =
+          window.si ||
+          function () {
+            (window.siq = window.siq || []).push(arguments);
+          };
+
+        const speedInsightsScript = document.createElement("script");
+        speedInsightsScript.defer = true;
+        speedInsightsScript.src = "/_vercel/speed-insights/script.js";
+        document.head.append(speedInsightsScript);
+      }
+    </script>
+  </body>
+</html>
