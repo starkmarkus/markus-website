@@ -26,6 +26,36 @@
     </style>
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="modulepreload" href="/src/main.js" />
+    <script>
+      const isLocalHostname =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "[::1]";
+
+      if (!isLocalHostname) {
+        window.va =
+          window.va ||
+          function () {
+            (window.vaq = window.vaq || []).push(arguments);
+          };
+
+        const analyticsScript = document.createElement("script");
+        analyticsScript.defer = true;
+        analyticsScript.src = "/_vercel/insights/script.js";
+        document.head.append(analyticsScript);
+
+        window.si =
+          window.si ||
+          function () {
+            (window.siq = window.siq || []).push(arguments);
+          };
+
+        const speedInsightsScript = document.createElement("script");
+        speedInsightsScript.defer = true;
+        speedInsightsScript.src = "/_vercel/speed-insights/script.js";
+        document.head.append(speedInsightsScript);
+      }
+    </script>
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
@@ -471,35 +501,5 @@ Learning continuously.</p>
       </aside>
     </main>
 
-    <script>
-      const isLocalHostname =
-        window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname === "[::1]";
-
-      if (!isLocalHostname) {
-        window.va =
-          window.va ||
-          function () {
-            (window.vaq = window.vaq || []).push(arguments);
-          };
-
-        const analyticsScript = document.createElement("script");
-        analyticsScript.defer = true;
-        analyticsScript.src = "/_vercel/insights/script.js";
-        document.head.append(analyticsScript);
-
-        window.si =
-          window.si ||
-          function () {
-            (window.siq = window.siq || []).push(arguments);
-          };
-
-        const speedInsightsScript = document.createElement("script");
-        speedInsightsScript.defer = true;
-        speedInsightsScript.src = "/_vercel/speed-insights/script.js";
-        document.head.append(speedInsightsScript);
-      }
-    </script>
   </body>
 </html>
