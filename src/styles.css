@@ -1793,32 +1793,25 @@ button {
 
 .about-home-stage.is-intro-pending .about-home-subtext,
 .about-home-stage.is-intro-active:not(.is-subtext-visible) .about-home-subtext {
-  display: grid;
-  visibility: hidden;
+  display: none;
 }
 
 .about-home-stage.is-intro-pending .about-home-rule,
 .about-home-stage.is-intro-active:not(.is-rule-visible) .about-home-rule {
-  display: block;
-  visibility: hidden;
+  display: none;
 }
 
 .about-home-stage.is-intro-pending .about-home-actions,
 .about-home-stage.is-intro-active:not(.is-actions-visible) .about-home-actions {
-  display: flex;
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
 }
 
 .about-home-stage.is-intro-active.is-rule-visible .about-home-rule {
-  visibility: visible;
   display: block;
   animation: about-home-rule-draw 420ms cubic-bezier(0.2, 0.9, 0.24, 1) both;
 }
 
 .about-home-stage.is-intro-active.is-actions-visible .about-home-actions {
-  visibility: visible;
-  pointer-events: auto;
   display: flex;
   animation: about-home-actions-reveal 240ms ease both;
 }
