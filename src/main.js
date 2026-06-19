@@ -3206,6 +3206,10 @@ function prepareAboutIntroText(element) {
     return "Focused on energy,\nsustainability, and\ndata analytics.";
   }
 
+  if (element === aboutHomeFocusTyping) {
+    return "Focused on energy, sustainability,\nand data analytics.";
+  }
+
   if (!element.dataset.fullText) {
     element.dataset.fullText = normalizeAboutIntroText(element.textContent || "");
   }
@@ -3213,23 +3217,65 @@ function prepareAboutIntroText(element) {
   return element.dataset.fullText;
 }
 
-function renderCompactAboutHeadingLines(text, activeLineIndex = -1) {
-  if (!aboutHomeHeading) {
+function renderAboutIntroLines(element, text, templateText, lineClassName, activeLineIndex = -1) {
+  if (!element) {
     return;
   }
 
-  const templateLines = prepareAboutIntroText(aboutHomeHeading).split("\n");
+  const templateLines = String(templateText || "").split("\n");
   const nextLines = String(text || "").split("\n");
-  aboutHomeHeading.replaceChildren(
+  element.replaceChildren(
     ...templateLines.map((_, index) => {
       const line = document.createElement("span");
-      line.className = "about-home-heading-line";
+      line.className = lineClassName;
       if (index === activeLineIndex) {
         line.classList.add("is-active");
       }
       line.textContent = nextLines[index] || "";
       return line;
     }),
+  );
+}
+
+function renderCompactAboutHeadingLines(text, activeLineIndex = -1) {
+  if (!aboutHomeHeading) {
+    return;
+  }
+
+  renderAboutIntroLines(
+    aboutHomeHeading,
+    text,
+    prepareAboutIntroText(aboutHomeHeading),
+    "about-home-heading-line",
+    activeLineIndex,
+  );
+}
+
+function renderAboutHeadingLines(text, activeLineIndex = -1) {
+  if (!aboutHomeHeading) {
+    return;
+  }
+
+  renderAboutIntroLines(
+    aboutHomeHeading,
+    text,
+    prepareAboutIntroText(aboutHomeHeading),
+    "about-home-heading-line",
+    activeLineIndex,
+  );
+}
+
+function renderAboutFocusTypingLines(text, activeLineIndex = -1) {
+  if (!aboutHomeFocusTyping) {
+    return;
+  }
+
+  renderAboutIntroLines(
+    aboutHomeFocusTyping,
+    text,
+    prepareAboutIntroText(aboutHomeFocusTyping),
+    "about-home-focus-typing-line",
+    activeLineIndex,
   );
 }
 
@@ -3276,11 +3322,7 @@ function setAboutIntroFinalState() {
   const noteText = prepareAboutIntroText(aboutHomeNote);
 
   if (aboutHomeHeading) {
-    if (isCompactDesktopLayout()) {
-      renderCompactAboutHeadingLines(headingText);
-    } else {
-      aboutHomeHeading.textContent = headingText;
-    }
+    renderAboutHeadingLines(headingText);
     aboutHomeHeading.classList.remove("is-typing");
   }
 
@@ -3329,6 +3371,10 @@ function typeAboutIntroText(element, text, delay, stepMs, callback) {
 
   if (element === aboutHomeHeading && isCompactDesktopLayout()) {
     renderCompactAboutHeadingLines("");
+  } else if (element === aboutHomeHeading) {
+    renderAboutHeadingLines("");
+  } else if (element === aboutHomeFocusTyping) {
+    renderAboutFocusTypingLines("");
   } else {
     element.textContent = "";
   }
@@ -3342,6 +3388,10 @@ function typeAboutIntroText(element, text, delay, stepMs, callback) {
       const nextText = text.slice(0, index);
       if (element === aboutHomeHeading && isCompactDesktopLayout()) {
         renderCompactAboutHeadingLines(nextText, Math.max(nextText.split("\n").length - 1, 0));
+      } else if (element === aboutHomeHeading) {
+        renderAboutHeadingLines(nextText, Math.max(nextText.split("\n").length - 1, 0));
+      } else if (element === aboutHomeFocusTyping) {
+        renderAboutFocusTypingLines(nextText, Math.max(nextText.split("\n").length - 1, 0));
       } else {
         element.textContent = nextText;
       }
@@ -3350,6 +3400,10 @@ function typeAboutIntroText(element, text, delay, stepMs, callback) {
         element.classList.remove("is-typing");
         if (element === aboutHomeHeading && isCompactDesktopLayout()) {
           renderCompactAboutHeadingLines(text);
+        } else if (element === aboutHomeHeading) {
+          renderAboutHeadingLines(text);
+        } else if (element === aboutHomeFocusTyping) {
+          renderAboutFocusTypingLines(text);
         }
         callback?.();
         return;
@@ -3409,7 +3463,7 @@ function startAboutIntroAnimation(options = {}) {
   if (isCompactDesktopLayout()) {
     renderCompactAboutHeadingLines("");
   } else if (aboutHomeHeading) {
-    aboutHomeHeading.textContent = "";
+    renderAboutHeadingLines("");
   }
   aboutHomeHeading.classList.remove("is-typing");
   aboutHomeFocusTyping.classList.remove("is-typing");

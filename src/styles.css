@@ -1867,7 +1867,7 @@ button {
   line-height: 1.02;
   letter-spacing: 0.01em;
   min-height: calc(3 * 1.02em);
-  white-space: pre-line;
+  white-space: normal;
 }
 
 .about-home-heading-line {
@@ -1875,6 +1875,12 @@ button {
   width: fit-content;
   max-width: 100%;
   position: relative;
+}
+
+.about-home-focus-typing-line {
+  display: block;
+  position: relative;
+  min-height: 1.42em;
 }
 
 .about-home-heading.is-typing::after,
@@ -1890,12 +1896,37 @@ button {
   animation: about-home-caret 760ms steps(1, end) infinite;
 }
 
+.about-home-heading.is-typing::after,
+.about-home-focus-typing.is-typing::after {
+  content: none;
+  animation: none;
+}
+
+.about-home-heading-line::after,
+.about-home-focus-typing-line::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 0.08em);
+  top: 50%;
+  width: 0.58ch;
+  height: 0.92em;
+  background: currentColor;
+  transform: translateY(-54%);
+  opacity: 0;
+}
+
+.about-home-heading-line.is-active::after,
+.about-home-focus-typing-line.is-active::after {
+  opacity: 1;
+  animation: about-home-caret 760ms steps(1, end) infinite;
+}
+
 .about-home-subtext {
   display: grid;
   gap: 10px;
   margin: 0;
   margin-top: 4px;
-  max-width: 38rem;
+  max-width: 42rem;
 }
 
 .about-home-subtext-line,
@@ -1914,8 +1945,15 @@ button {
 
 .about-home-focus-typing,
 .about-home-focus-line {
-  min-height: calc(2.84em + 1px);
+  min-height: calc(2 * 1.42em);
   padding-top: 7px;
+}
+
+.about-home-focus-typing {
+  white-space: pre-line;
+}
+
+.about-home-focus-line {
   white-space: normal;
 }
 
