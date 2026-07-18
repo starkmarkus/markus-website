@@ -390,6 +390,20 @@ const projectCategories = [
           "Designed and implemented the product end-to-end, from the knowledge flow and response safeguards to the interface and feedback loop.\n\nThe public repository is intentionally limited to a sanitized demonstration version.",
       },
       {
+        id: "telesales",
+        label: "Telesales",
+        detailCategory: "APPLIED AI",
+        title: "Telesales",
+        detailTitle: "Stealth project",
+        status: "Ongoing",
+        type: "Stealth project",
+        duration: "Current",
+        summary:
+          "A project that is intentionally kept confidential while it is in development.",
+        details:
+          "Public details are not available at this stage.",
+      },
+      {
         id: "ai-influencer",
         label: "Creative AI",
         detailCategory: "APPLIED AI",
@@ -546,6 +560,7 @@ const PROJECT_STAGE_PROJECT_ICONS = {
   migration: "/assets/icns/project-migration.svg",
   "news-app": "/assets/icns/project-news-app.svg",
   atlas: "/assets/icns/project-atlas.svg",
+  telesales: "/assets/icns/project-telesales.svg",
   "ai-influencer": "/assets/icns/project-ai-influencer.svg",
   website: "/assets/icns/project-website.svg",
   "rwe-project": "/assets/icns/project-rwe.svg",
@@ -575,7 +590,8 @@ const PROJECT_STAGE_LAYOUTS = {
     { id: "news-app", kind: "document", x: 324, y: 24, width: 132 },
     { id: "website", kind: "document", x: 476, y: 24, width: 132 },
     { id: "atlas", kind: "document", x: 20, y: 144, width: 132 },
-    { id: "ai-influencer", kind: "document", x: 172, y: 144, width: 132 },
+    { id: "telesales", kind: "document", x: 172, y: 144, width: 132 },
+    { id: "ai-influencer", kind: "document", x: 324, y: 144, width: 132 },
   ],
   energy: [
     { id: "rwe-project", kind: "document", x: 20, y: 24, width: 132 },
