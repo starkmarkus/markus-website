@@ -68,6 +68,7 @@ const AudioContextClass = window.AudioContext || window.webkitAudioContext;
 const LINKEDIN_URL = "https://www.linkedin.com/in/mastark/";
 const GITHUB_PROFILE_URL = "https://github.com/starkmarkus";
 const MINUTO_REPO_URL = "https://github.com/starkmarkus/minuto";
+const ATLAS_REPO_URL = "https://github.com/starkmarkus/mensa-wegweiser-public";
 const CONTACT_API_ENDPOINT = "/api/contact";
 const PROJECTS_FOLDER_ICON = "/assets/icns/portfolio-folder.svg";
 const PROJECTS_FOLDER_OPEN_ICON = "/assets/icns/portfolio-folder-open.svg";
@@ -287,6 +288,7 @@ function getProjectDetailWindowRefs(windowElement) {
     request: windowElement.querySelector('[data-project-detail-ref="request"]'),
     secondaryActions: windowElement.querySelector('[data-project-detail-ref="secondary-actions"]'),
     github: windowElement.querySelector('[data-project-detail-ref="github"]'),
+    website: windowElement.querySelector('[data-project-detail-ref="website"]'),
   };
 }
 
@@ -371,6 +373,40 @@ const projectCategories = [
           "Built a full working app including story based navigation, personalized topic selection, and audio playback.\nIntegrated multiple APIs for news sourcing, enrichment, and speech generation.\n\nExplored early concepts for GroundNews-inspired perspective comparison and story clustering.",
       },
       {
+        id: "atlas",
+        label: "Atlas",
+        detailCategory: "APPLIED AI",
+        title: "Atlas",
+        requestTitle: "Atlas",
+        requestMessage: "Hi Markus,\n\nCould you please send me more details about Atlas?\n\nBest,\n",
+        detailTitle: "Atlas: A privacy-conscious onboarding prototype",
+        status: "Ongoing",
+        type: "Personal project",
+        duration: "2 months",
+        githubUrl: ATLAS_REPO_URL,
+        summary:
+          "Built a privacy-conscious onboarding prototype for a member-based community.\nUses a small, curated knowledge base to provide grounded orientation.\nDesigned as an early-stage beta with data-minimizing defaults.",
+        details:
+          "Designed and implemented the product end-to-end, from the knowledge flow and response safeguards to the interface and feedback loop.\n\nThe public repository is intentionally limited to a sanitized demonstration version.",
+      },
+      {
+        id: "ai-influencer",
+        label: "Creative AI",
+        detailCategory: "APPLIED AI",
+        title: "Creative AI",
+        requestTitle: "Creative AI project",
+        requestMessage: "Hi Markus,\n\nCould you please send me more details about your Creative AI project?\n\nBest,\n",
+        detailTitle: "Exploring consistent AI-native creative direction",
+        status: "Ongoing (on hold)",
+        type: "Personal project",
+        duration: "Current",
+        requestDetails: true,
+        summary:
+          "Explored AI-native creative direction across image and video.\nDeveloped a consistent visual language, content workflow, and editorial approach from the ground up.",
+        details:
+          "Combined automated production workflows with manual creative direction, editing, and quality control.\n\nThe work focused on maintaining a coherent visual identity despite the non-deterministic nature of generative AI.",
+      },
+      {
         id: "website",
         label: "Website",
         title: "Website",
@@ -437,6 +473,24 @@ const projectCategories = [
         details:
           "Worked directly with founders on high impact problems across product and operations.\n\nIncludes mentorship, masterclasses, and access to the founder network.",
       },
+      {
+        id: "aqdot",
+        label: "Automotive Circularity",
+        detailCategory: "SUSTAINABILITY",
+        title: "Automotive Circularity",
+        requestTitle: "Automotive circularity project",
+        requestMessage: "Hi Markus,\n\nCould you please send me more details about your automotive circularity project?\n\nBest,\n",
+        detailTitle: "Circular materials in the automotive ecosystem",
+        windowTitle: "Automotive Circularity",
+        status: "Completed",
+        type: "Project study",
+        duration: "3 months",
+        requestDetails: true,
+        summary:
+          "Project study on circular materials in automotive applications.\nAssessed how regulation, material performance, and production economics shape adoption.\nTranslated market research and expert input into a structured market-entry recommendation.",
+        details:
+          "Built market-sizing and unit-economics models, evaluated adoption barriers, and synthesized expert input.\n\nDeveloped a staged go-to-market strategy, value-capture model, and implementation roadmap.",
+      },
     ],
   },
   {
@@ -491,10 +545,13 @@ const PROJECT_STAGE_PROJECT_ICONS = {
   satellite: "/assets/icns/project-satellite.svg",
   migration: "/assets/icns/project-migration.svg",
   "news-app": "/assets/icns/project-news-app.svg",
+  atlas: "/assets/icns/project-atlas.svg",
+  "ai-influencer": "/assets/icns/project-ai-influencer.svg",
   website: "/assets/icns/project-website.svg",
   "rwe-project": "/assets/icns/project-rwe.svg",
   myclever: "/assets/icns/project-myclever.svg",
   "food-labs": "/assets/icns/project-food-labs.svg",
+  aqdot: "/assets/icns/project-aqdot.svg",
 };
 const PROJECT_STAGE_FOLDER_ICONS = {
   "applied-ai": {
@@ -517,11 +574,14 @@ const PROJECT_STAGE_LAYOUTS = {
     { id: "migration", kind: "document", x: 172, y: 24, width: 132 },
     { id: "news-app", kind: "document", x: 324, y: 24, width: 132 },
     { id: "website", kind: "document", x: 476, y: 24, width: 132 },
+    { id: "atlas", kind: "document", x: 20, y: 144, width: 132 },
+    { id: "ai-influencer", kind: "document", x: 172, y: 144, width: 132 },
   ],
   energy: [
     { id: "rwe-project", kind: "document", x: 20, y: 24, width: 132 },
     { id: "myclever", kind: "document", x: 172, y: 24, width: 132 },
     { id: "food-labs", kind: "document", x: 324, y: 24, width: 132 },
+    { id: "aqdot", kind: "document", x: 476, y: 24, width: 132 },
   ],
   chess: [
     { id: "opening-lab", kind: "document", x: 70, y: 52, width: 98 },
@@ -535,10 +595,10 @@ const PROJECT_STAGE_ITEM_HEIGHTS = {
   document: 96,
 };
 const PROJECT_STAGE_MIN_HEIGHTS = {
-  root: 338,
-  "applied-ai": 320,
+  root: 344,
+  "applied-ai": 344,
   energy: 344,
-  chess: 334,
+  chess: 344,
 };
 const DESKTOP_EDGE_INSET = 18;
 const COMPACT_DESKTOP_BREAKPOINT = 760;
@@ -3120,6 +3180,15 @@ function populateProjectDetail(projectId, windowElement = projectDetailTemplateW
     }
   }
 
+  if (refs.website) {
+    refs.website.hidden = !project.websiteUrl;
+    if (project.websiteUrl) {
+      refs.website.dataset.websiteUrl = project.websiteUrl;
+    } else {
+      delete refs.website.dataset.websiteUrl;
+    }
+  }
+
   if (refs.secondaryActions) {
     refs.secondaryActions.hidden = true;
   }
@@ -5488,8 +5557,12 @@ function bindProjectDetailWindowActions(windowElement) {
       const nextHiddenState = !refs.more.hidden;
       refs.more.hidden = nextHiddenState;
       refs.expand.textContent = nextHiddenState ? "Expand" : "Collapse";
-      if (refs.secondaryActions && refs.github) {
-        refs.secondaryActions.hidden = nextHiddenState || refs.github.hidden || !refs.github.dataset.githubUrl;
+      if (refs.secondaryActions) {
+        const hasExternalLink = Boolean(
+          (refs.github && !refs.github.hidden && refs.github.dataset.githubUrl) ||
+          (refs.website && !refs.website.hidden && refs.website.dataset.websiteUrl),
+        );
+        refs.secondaryActions.hidden = nextHiddenState || !hasExternalLink;
       }
       playUiSound("click");
       requestCustomScrollbarSync();
@@ -5505,6 +5578,18 @@ function bindProjectDetailWindowActions(windowElement) {
 
       playUiSound("menuPick");
       window.open(githubUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  if (refs.website) {
+    refs.website.addEventListener("click", () => {
+      const websiteUrl = refs.website.dataset.websiteUrl;
+      if (!websiteUrl) {
+        return;
+      }
+
+      playUiSound("menuPick");
+      window.open(websiteUrl, "_blank", "noopener,noreferrer");
     });
   }
 
