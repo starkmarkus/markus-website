@@ -567,7 +567,7 @@ const PROJECT_STAGE_LAYOUTS = {
   root: [
     { id: "energy", kind: "folder", x: 20, y: 24, width: 132 },
     { id: "applied-ai", kind: "folder", x: 184, y: 24, width: 132 },
-    { id: "chess", kind: "chess", x: 538, y: 206, width: 74 },
+    { id: "chess", kind: "chess", x: 538, y: 194, width: 74 },
   ],
   "applied-ai": [
     { id: "satellite", kind: "document", x: 20, y: 24, width: 132 },
@@ -595,10 +595,10 @@ const PROJECT_STAGE_ITEM_HEIGHTS = {
   document: 96,
 };
 const PROJECT_STAGE_MIN_HEIGHTS = {
-  root: 344,
-  "applied-ai": 344,
-  energy: 344,
-  chess: 344,
+  root: 320,
+  "applied-ai": 320,
+  energy: 320,
+  chess: 320,
 };
 const DESKTOP_EDGE_INSET = 18;
 const COMPACT_DESKTOP_BREAKPOINT = 760;
