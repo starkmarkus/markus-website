@@ -580,29 +580,29 @@ const PROJECT_STAGE_FOLDER_ICONS = {
 };
 const PROJECT_STAGE_LAYOUTS = {
   root: [
-    { id: "energy", kind: "folder", x: 20, y: 24, width: 132 },
-    { id: "applied-ai", kind: "folder", x: 184, y: 24, width: 132 },
-    { id: "chess", kind: "chess", x: 538, y: 194, width: 74 },
+    { id: "energy", kind: "folder", x: 30, y: 38, width: 132 },
+    { id: "applied-ai", kind: "folder", x: 260, y: 156, width: 132 },
+    { id: "chess", kind: "chess", x: 522, y: 48, width: 74 },
   ],
   "applied-ai": [
-    { id: "satellite", kind: "document", x: 20, y: 24, width: 132 },
-    { id: "migration", kind: "document", x: 172, y: 24, width: 132 },
-    { id: "news-app", kind: "document", x: 324, y: 24, width: 132 },
-    { id: "website", kind: "document", x: 476, y: 24, width: 132 },
-    { id: "atlas", kind: "document", x: 20, y: 144, width: 132 },
-    { id: "telesales", kind: "document", x: 172, y: 144, width: 132 },
-    { id: "ai-influencer", kind: "document", x: 324, y: 144, width: 132 },
+    { id: "satellite", kind: "document", x: 28, y: 28, width: 132 },
+    { id: "migration", kind: "document", x: 185, y: 166, width: 132 },
+    { id: "news-app", kind: "document", x: 336, y: 38, width: 132 },
+    { id: "website", kind: "document", x: 474, y: 178, width: 132 },
+    { id: "atlas", kind: "document", x: 22, y: 174, width: 132 },
+    { id: "telesales", kind: "document", x: 178, y: 42, width: 132 },
+    { id: "ai-influencer", kind: "document", x: 326, y: 170, width: 132 },
   ],
   energy: [
-    { id: "rwe-project", kind: "document", x: 20, y: 24, width: 132 },
-    { id: "myclever", kind: "document", x: 172, y: 24, width: 132 },
-    { id: "food-labs", kind: "document", x: 324, y: 24, width: 132 },
-    { id: "aqdot", kind: "document", x: 476, y: 24, width: 132 },
+    { id: "rwe-project", kind: "document", x: 30, y: 34, width: 132 },
+    { id: "myclever", kind: "document", x: 190, y: 176, width: 132 },
+    { id: "food-labs", kind: "document", x: 340, y: 52, width: 132 },
+    { id: "aqdot", kind: "document", x: 478, y: 170, width: 132 },
   ],
   chess: [
-    { id: "opening-lab", kind: "document", x: 70, y: 52, width: 98 },
-    { id: "game-review", kind: "document", x: 292, y: 154, width: 104 },
-    { id: "puzzle-trainer", kind: "document", x: 492, y: 76, width: 102 },
+    { id: "opening-lab", kind: "document", x: 44, y: 172, width: 98 },
+    { id: "game-review", kind: "document", x: 270, y: 34, width: 104 },
+    { id: "puzzle-trainer", kind: "document", x: 490, y: 154, width: 102 },
   ],
 };
 const PROJECT_STAGE_ITEM_HEIGHTS = {
