@@ -4491,30 +4491,10 @@ function attachDragging(windowElement) {
     pointerId: null,
     offsetX: 0,
     offsetY: 0,
-    frame: 0,
-    pendingLeft: null,
-    pendingTop: null,
   };
-
-  function flushDraggingFrame() {
-    dragState.frame = 0;
-    if (dragState.pendingLeft === null || dragState.pendingTop === null) {
-      return;
-    }
-
-    windowElement.style.left = `${Math.round(dragState.pendingLeft)}px`;
-    windowElement.style.top = `${Math.round(dragState.pendingTop)}px`;
-    refreshCoveredDesktopIcons();
-  }
 
   function clearDragging(pointerId = null) {
     dragState.pointerId = null;
-    if (dragState.frame) {
-      window.cancelAnimationFrame(dragState.frame);
-      dragState.frame = 0;
-    }
-    dragState.pendingLeft = null;
-    dragState.pendingTop = null;
     windowElement.classList.remove("is-dragging");
 
     if (pointerId !== null && handle.hasPointerCapture(pointerId)) {
@@ -4572,11 +4552,8 @@ function attachDragging(windowElement) {
       Math.max(stageRect.height - windowElement.offsetHeight - compactInset, compactInset),
     );
 
-    dragState.pendingLeft = nextLeft;
-    dragState.pendingTop = nextTop;
-    if (!dragState.frame) {
-      dragState.frame = window.requestAnimationFrame(flushDraggingFrame);
-    }
+    windowElement.style.left = `${Math.round(nextLeft)}px`;
+    windowElement.style.top = `${Math.round(nextTop)}px`;
   });
 
   function finishDragging(event) {
