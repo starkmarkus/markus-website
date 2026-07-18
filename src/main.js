@@ -384,6 +384,7 @@ const projectCategories = [
         type: "Personal project",
         duration: "2 months",
         githubUrl: ATLAS_REPO_URL,
+        websiteUrl: "https://mensa-wegweiser.vercel.app/",
         summary:
           "Built a privacy-conscious onboarding prototype for a member-based community.\nUses a small, curated knowledge base to provide grounded orientation.\nDesigned as an early-stage beta with data-minimizing defaults.",
         details:
